@@ -1,0 +1,20 @@
+.bg-img {
+  background-image: url('/images/homePic.jpg');
+  height: 725px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-img2 {
+  background-image: url('/images/homePic2.jpg');
+  height: 725px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.logo-img{
+  height:100px;
+  width:100px;
+}
