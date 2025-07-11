@@ -34,7 +34,7 @@ const isUserExist = async (req, res, next) => {
         }
         res.clearCookie("connect.sid"); // clear session cookie
         return res.redirect(
-          "/user/login?message=User doesn't exist..! Account deleted..!"
+          "/user/signup?message=User doesn't exist..! Account deleted..!"
         );
       });
     } else {

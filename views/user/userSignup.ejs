@@ -22,7 +22,7 @@
 
         <div class="d-flex justify-content-center align-items-center p-5">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
-      <h3 class="text-center mb-4">Login</h3>
+      <h3 class="text-center mb-4">Signup</h3>
       <form method="post" action="/user/signup" onsubmit="return validateSignupForm()" novalidate>
   <div class="mb-3 mt-3">
     <label for="name" class="form-label">Name:</label>
@@ -60,10 +60,16 @@
   const params = new URLSearchParams(window.location.search);
   const message = params.get('message');
 
-  // Show alert if message exists
+  const errorDiv = document.getElementById("error");
+
   if (message) {
-    alert(message);
+    errorDiv.textContent = message;
+    errorDiv.classList.remove("d-none"); 
+  } else {
+    errorDiv.textContent = "";
+    errorDiv.classList.add("d-none"); 
   }
+
 </script>
 
     <script src="/js/validate.js"></script>

@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
     await newUser.save();
 
     // Success
-    res.redirect("/user/login?message=Registered successfully! Login now");
+    res.redirect("/user/login?success=Registered successfully! Login now");
   } catch (error) {
     console.log("Registration Error:", error);
     res.redirect("/user/signup?message=Something went wrong!");
