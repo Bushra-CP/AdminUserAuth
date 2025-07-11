@@ -23,15 +23,18 @@
         <div class="d-flex justify-content-center align-items-center p-5">
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
       <h3 class="text-center mb-4">Login</h3>
-      <form method="post" action="/admin/login" onsubmit="return validateSignupForm()">
+      <form method="post" action="/admin/login" onsubmit="return validateLoginForm()" novalidate>
   <div class="mb-3 mt-3">
     <label for="email" class="form-label">Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
   </div>
   <div class="mb-3">
     <label for="pwd" class="form-label">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
   </div>
+
+  <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
     </div>
@@ -44,9 +47,14 @@
   const params = new URLSearchParams(window.location.search);
   const message = params.get('message');
 
-  // Show alert if message exists
+  const errorDiv = document.getElementById("loginError");
+
   if (message) {
-    alert(message);
+    errorDiv.textContent = message;
+    errorDiv.classList.remove("d-none"); 
+  } else {
+    errorDiv.textContent = "";
+    errorDiv.classList.add("d-none"); 
   }
 </script>
 

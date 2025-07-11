@@ -7,7 +7,7 @@ const adminLogin = async (req, res) => {
     const admin = await Admin.findOne({ email });
 
     if (!admin) {
-      return res.redirect("/admin/login?message=Admin not found!");
+      return res.redirect("/admin/login?message=Invalid credentials!");
     }
 
     if (admin.role !== "admin") {

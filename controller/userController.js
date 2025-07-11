@@ -50,9 +50,11 @@ const userLogin = async (req, res) => {
       return res.redirect("/user/login?message=Incorrect password!");
     }
 
-    // ✅ Store user name in session
-    req.session.user = user;
-    req.session.userName = user.name;
+    req.session.user = {
+      id: user._id,
+      name: user.name,
+      email: user.email
+    };
 
     return res.redirect("/user/home");
   } catch (error) {
@@ -70,5 +72,6 @@ const logout = (req, res) => {
     res.redirect("/user/login?message=Logged out successfully");
   });
 };
+
 
 module.exports = { registerUser, userLogin, logout };
